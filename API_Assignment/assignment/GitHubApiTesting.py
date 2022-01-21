@@ -9,7 +9,9 @@ class GITHub(RestApi):
     def getAllReposOfUser(self):
         self.url = self.baseURL+ 'user/repos'
         self.statusCode, self.response = self.GET_Method(self.url, self.auth,)
-        print(self.statusCode,self.response)
+        with open('getAllReposOfUser.txt', 'w') as f:
+            f.write(str(self.response))
+        print(self.statusCode)
 
 # To create new repo
     def CreateNewRepo(self, name_repo):
