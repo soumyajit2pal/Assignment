@@ -20,7 +20,7 @@ class GITHub(RestApi):
         self.headers = {"Content-Type":"application/json; charset=utf-8"}
         self.statusCode, self.response = self.POST_Method(self.url, self.payload, self.auth, self.headers)
         with open('CreateNewRepo_response.txt', 'w') as f:
-            f.write(self.response)
+            f.write(str(self.response))
         print(self.statusCode)
 
 # It will return all Public and Private repo
@@ -29,7 +29,7 @@ class GITHub(RestApi):
         self.url = self.baseURL+ ApiResources.getSpecificRepo_GET+self.name_repo
         self.statusCode, self.response = self.GET_Method(self.url, self.auth,)
         with open('getPublic_Private_Any_repo_Details.txt', 'w') as f:
-            f.write(self.response)
+            f.write(str(self.response))
         print(self.statusCode)
 
 # It will update repo details like you can make repo private or public/ Descriptions
@@ -40,7 +40,7 @@ class GITHub(RestApi):
         self.headers = {"Content-Type":"application/json; charset=utf-8"}
         self.statusCode, self.response = self.PATCH_Method(self.url, self.payload, self.auth, self.headers)
         with open('UpdateRepoUsingPATCHMethod.txt', 'w') as f:
-            f.write(self.response)
+            f.write(str(self.response))
         print(self.statusCode)
 
 # it will delete repo
